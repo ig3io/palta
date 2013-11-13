@@ -4,7 +4,8 @@ server = Palta::Server.new({
   :debug => true,
   :dir => "./.palta/data",
   :host => "localhost",
-  :port => 8888
+  :port => 8888,
+  :max_threads => 8
 })
 
 server.actions do
@@ -22,3 +23,5 @@ server.actions do
   end
 
 end
+
+server.start
