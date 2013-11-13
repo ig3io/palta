@@ -1,4 +1,4 @@
-Copyright (c) 2013 Ignacio Contreras
+Copyright (c) 2013 Ignacio Contreras Pinilla
 
 MIT License
 
