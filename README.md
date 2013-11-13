@@ -1,29 +1,29 @@
 # Palta
 
-TODO: Write a gem description
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'palta'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install palta
+Simple server for simple (remote) logging. Right now it's just an experiment.
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require "palta"
 
-## Contributing
+server = Palta::Server.new
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+server.actions do
+
+  def on_info msg
+    puts "relax: #{msg}"
+  end
+
+  def on_warning msg
+    puts "just saying: #{msg}"
+  end
+
+  def on_error msg
+    puts "oops: #{msg}"
+  end
+
+end
+
+server.start
+```
