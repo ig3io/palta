@@ -1,6 +1,10 @@
 # Palta
 
-Simple server for simple (remote) logging. Right now it's just an experiment.
+Simple server for simple (remote) logging. Right now it's just an experimental work in progress.
+
+It receives messages and triggers actions.
+
+The criteria should be fully customizable and it should be able to work via TCP and UDP (HTTP too?).
 
 ## Usage
 
