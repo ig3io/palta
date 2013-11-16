@@ -3,11 +3,7 @@
 require 'palta'
 require 'optparse'
 
-options = {
-  :verbose => false,
-  :host => "localhost",
-  :port => 8888
-}
+options = {}
 
 OptionParser.new do |opts|
   opts.banner = "Usage: palta.rb [options]"
