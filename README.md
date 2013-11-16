@@ -6,7 +6,9 @@ It receives messages and triggers actions.
 
 The criteria should be fully customizable and it should be able to work via TCP and UDP (HTTP too?).
 
-## Usage
+## Planned Usage
+
+It's *planned*, it means *not implemented*. ;\*
 
 ```ruby
 require "palta"
