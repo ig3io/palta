@@ -27,5 +27,11 @@ end.parse!
 
 server = Palta::Server.new options
 server.start
-puts "[palta.rb] Server started!" if options[:verbose]
+puts "[palta.rb] Server started!"
 
+begin
+  while true do
+  end
+rescue Interrupt => e
+  puts "[palta.rb] Main thread stopped"
+end
