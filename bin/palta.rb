@@ -30,8 +30,11 @@ server.start
 puts "[palta.rb] Server started!"
 
 begin
-  while true do
+  loop  do
   end
 rescue Interrupt => e
-  puts "[palta.rb] Main thread stopped"
+  puts "[palta.rb] stopping the server"
+  server.stop
+  puts "[palta.rb] main thread stopped"
+
 end

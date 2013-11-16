@@ -1,4 +1,5 @@
 require "palta/version"
+require "socket"
 
 module Palta
 
@@ -25,11 +26,13 @@ module Palta
     end
 
     def start
+      @server = TCPServer.new @host, @port
       @max_threads.times do |i|
         @threads << Thread.new do
-          sleep 1
-          puts "thread #{i}: hola"
-          # TODO actual socket reading code
+          loop do
+            client = @server.accept
+            puts "thread #{i} read: #{client.recv(1024)}"
+          end
         end
       end
     end
