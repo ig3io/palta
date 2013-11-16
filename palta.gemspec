@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["ignacio@ignacio.cat"]
   spec.description   = %q{Simple server for simple (remote) logging}
   spec.summary       = %q{Simple Ruby server made for logging remote messages and triggering actions according to customizable criteria}
-  spec.homepage      = "http://github.com/ignaciocontreras/palta"
+  spec.homepage      = "http://github.com/ignc/palta"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
