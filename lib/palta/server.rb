@@ -6,6 +6,8 @@ module Palta
 
   class Server
 
+    attr_reader :host, :port, :debug, :dir, :max_threads
+
     def initialize options = {}
       @host = options[:host] || "localhost"
       @port = options[:port] || 8888
