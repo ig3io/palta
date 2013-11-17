@@ -1,4 +1,5 @@
 require "palta/version"
+require "client"
 require "socket"
 require "json"
 
@@ -38,10 +39,11 @@ module Palta
         @threads << Thread.new do
           loop do
             client = @server.accept
-            msg = client.recv(1024)
+            data = client.recv(1024)
             if @debug
-              puts "[Palta::Server] thread #{i} recv: #{msg}"
+              puts "[Palta::Server] thread #{i} recv: #{data}"
             end
+            msg = JSON.parse(data)
             on_msg(JSON.parse(msg, :symbolize_keys => true))
           end
         end
