@@ -20,11 +20,12 @@ module Palta
     end
 
     def on_msg msg
-      send("on_#{msg[:type] || "default"}", msg)
+      on_any(msg)
+      send("on_#{msg[:type]}", msg)
     end
 
-    def on_default msg
-      puts "default: #{msg}"
+    def on_any msg
+      puts "on_any: #{msg}"
     end
 
     def start
@@ -37,8 +38,8 @@ module Palta
             if @debug
               puts "[Palta::Server] thread #{i} recv: #{data}"
             end
-            msg = JSON.parse(data)
-            on_msg(JSON.parse(msg, :symbolize_keys => true))
+            msg = JSON.parse(data, :symbolize_names => true)
+            on_msg(msg)
           end
         end
       end
