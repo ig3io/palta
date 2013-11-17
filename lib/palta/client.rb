@@ -1,3 +1,4 @@
+require "palta/core"
 require "socket"
 require "json"
 
