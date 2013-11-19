@@ -1,4 +1,4 @@
-require "./helper"
+require_relative "./helper"
 require "palta"
 
 s = Palta::Server.new({
