@@ -6,12 +6,12 @@ s = Palta::Server.new({
   :port => 8888,
   :debug => true
 })
-puts "[test] Starting server at #{s.host}:#{s.port}"
+puts "[#{__FILE__}] Starting server at #{s.host}:#{s.port}"
 s.start
 begin
   loop do
   end
 rescue Interrupt
-  puts "\n[test] Stopping server"
+  puts "\n[#{__FILE__}] Stopping server"
   s.stop
 end
