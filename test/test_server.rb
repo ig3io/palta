@@ -24,4 +24,15 @@ class TestBasic < Test::Unit::TestCase
     assert_equal options[:max_threads], s.max_threads
   end
 
+  def test_server_should_fail_to_start
+    options = {
+      :port => 567
+    }
+    s = Palta::Server.new options
+    assert_raise Errno::EACCES do
+      s.start
+      s.stop
+    end
+  end
+
 end
