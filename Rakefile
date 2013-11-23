@@ -11,4 +11,4 @@ Rake::TestTask.new do |test|
   test.libs << "test"
 end
 
-task :default => [:rdoc, :test]
+task :default => [:test]
