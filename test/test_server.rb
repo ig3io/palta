@@ -27,7 +27,7 @@ class TestBasic < Test::Unit::TestCase
     assert_equal options[:max_threads], s.max_threads
   end
 
-  def test_server_should_fail_to_start
+  def test_with_wrong_port_should_fail_to_start
     # Without root permissions the server should fail to start in a
     # port number lower than 1024
     options = {
@@ -40,4 +40,14 @@ class TestBasic < Test::Unit::TestCase
     end
   end
 
+  def test_with_wrong_host_should_fail_to_start
+    options = {
+      :host => "255.255.255.254"
+    }
+    s = Palta::Server.new options
+    assert_raise Errno::EADDRNOTAVAIL do
+      s.start
+      s.stop
+    end
+  end
 end
