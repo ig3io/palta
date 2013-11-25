@@ -2,16 +2,13 @@ require_relative "./test_helper"
 require "test/unit"
 require "palta"
 
-class TestBasic < Test::Unit::TestCase
+class TestServer < Test::Unit::TestCase
 
   def test_default_creation_yields_no_error
-    # Default creation should be valid in most environments
     s = Palta::Server.new
   end
 
   def test_creation_with_paramaters_ok
-    # With (a priori) correct data, the user should be able to
-    # instantiate a Palta::Server object
     options = {
       :host => "127.0.0.1",
       :port => 9898,
