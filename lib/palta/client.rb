@@ -14,8 +14,8 @@ module Palta
     end
 
     def send data
-      TCPSocket.open(@host, @port) do |s|
-        s.send data.to_json
+      TCPSocket.open @host, @port do |s|
+        s.send data.to_json, 0
       end
     end
 

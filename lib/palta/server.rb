@@ -6,7 +6,7 @@ module Palta
 
   class Server
 
-    attr_reader :host, :port, :debug, :dir, :max_threads
+    attr_reader :host, :port, :debug, :dir, :max_threads, :msg_recv
 
     def initialize options = {}
       @host = options[:host] || "localhost"
@@ -15,6 +15,7 @@ module Palta
       @dir = options[:dir] || "./.palta/data"
       @max_threads = options[:max_threads] || 8
       @threads = []
+      @msg_recv = 0
     end
 
     def actions &block
@@ -22,6 +23,7 @@ module Palta
     end
 
     def on_msg msg
+      @msg_recv += 1
       on_any(msg)
       send("on_#{msg[:type]}", msg)
     end
@@ -37,9 +39,8 @@ module Palta
           loop do
             client = @server.accept
             data = client.recv(1024)
-            if @debug
-              puts "[Palta::Server] thread #{i} recv: #{data}"
-            end
+            client.close
+            puts "[Palta::Server] thread #{i} recv: #{data}" if @debug
             msg = JSON.parse(data, :symbolize_names => true)
             on_msg(msg)
           end
