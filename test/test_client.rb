@@ -15,7 +15,8 @@ class TestClient < Test::Unit::TestCase
   end
 
   def test_with_wrong_host_should_fail_to_send
-    c = Palta::Client.new "255.255.255.254"
+    # Invalid IP address (see http://stackoverflow.com/questions/10456044/what-is-a-good-invalid-ip-address-to-use-for-unit-tests)
+    c = Palta::Client.new "192.0.2.2"
     assert_raise Errno::ENETUNREACH do
       c.send({ :hola => "hi"})
     end
