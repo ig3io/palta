@@ -38,8 +38,10 @@ class TestServer < Test::Unit::TestCase
   end
 
   def test_with_wrong_host_should_fail_to_start
+    # See http://stackoverflow.com/questions/10456044/what-is-a-good-invalid-ip-address-to-use-for-unit-tests
+    # for info about IP addresses that should not be routed anywhere
     options = {
-      :host => "255.255.255.254"
+      :host => "192.0.2.1"
     }
     s = Palta::Server.new options
     assert_raise Errno::EADDRNOTAVAIL do
