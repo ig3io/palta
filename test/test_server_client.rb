@@ -20,6 +20,7 @@ class TestServerClient < Test::Unit::TestCase
       :type => "test",
       :data => "this is a test"
     })
+    sleep 0.5 # to give the server thread the chance to run
     assert_equal 1, @s.msg_recv
   end
 

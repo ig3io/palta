@@ -29,7 +29,7 @@ module Palta
     end
 
     def on_any msg
-      puts "on_any: #{msg}"
+      # nothing
     end
 
     def start
