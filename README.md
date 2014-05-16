@@ -1,6 +1,6 @@
 # Palta
 
-[![Build Status](https://travis-ci.org/ignc/palta.png?branch=master)](https://travis-ci.org/ignc/palta)
+[![Build Status](https://travis-ci.org/iconpin/palta.png?branch=master)](https://travis-ci.org/iconpin/palta)
 
 Simple server for simple (remote) logging. Right now it's just an experimental work in progress.
 
